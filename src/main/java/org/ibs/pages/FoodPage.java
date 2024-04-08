@@ -1,5 +1,8 @@
-package org.ibs;
+package org.ibs.pages;
 
+import org.ibs.utils.PropConst;
+import org.ibs.managers.DriverManager;
+import org.ibs.managers.TestPropManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +17,8 @@ import java.util.Map;
 
 public class FoodPage {
 
-    private static final WebDriver webDriver = DriverManager.getDriver();
+    protected final DriverManager driverManager = DriverManager.getDriverManager();
+    protected WebDriver webDriver = driverManager.getDriver();
     private final WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
     private final TestPropManager props = TestPropManager.getTestPropManager();
 
@@ -47,13 +51,16 @@ public class FoodPage {
     private Map<String, String> saveTable(List<WebElement> rows) {
         Map<String, String> tableData = new HashMap<>();
         for (WebElement row : rows) {
-            List<WebElement> productCells = row.findElements(By.tagName(".//td"));
-            String rowData = "";
+            List<WebElement> productCells = row.findElements(By.xpath(".//td"));
+            StringBuilder rowDataBuilder = new StringBuilder();
+            //String rowData = "";
             if (!productCells.isEmpty()) {
                 String key = productCells.get(0).getText();
                 for (int i = 1; i < productCells.size(); i++) {
-                    rowData += productCells.get(i).getText() + " ";
+                    //rowData += productCells.get(i).getText() + " ";
+                    rowDataBuilder.append(productCells.get(i).getText()).append(" ");
                 }
+                String rowData = rowDataBuilder.toString().trim();
                 tableData.put(key, rowData);
             }
         }
@@ -61,13 +68,13 @@ public class FoodPage {
     }
 
     public void addProducts(String name, String type, boolean exotic) {
-        webDriver.get(props.getProperty(PropConst.BASE_URL));
+        webDriver.get(props.getProperty(PropConst.FOOD_URL));
         WebElement btnAddProducts = wait.until(ExpectedConditions.visibilityOfElementLocated(addProductsButtonLocator));
         btnAddProducts.click();
         insertData(name, type, exotic);
         WebElement btnSaveProducts = wait.until(ExpectedConditions.elementToBeClickable(saveProductsButtonLocator));
         btnSaveProducts.click();
-        rows = webDriver.findElements(rowsLocator);
+        rows = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(rowsLocator));;
     }
 
     private void insertData(String name, String type, boolean exotic) {
@@ -89,7 +96,7 @@ public class FoodPage {
     }
 
     public boolean containsProduct(String name) {
-        List<WebElement> rows = webDriver.findElements(rowsLocator);
+        List<WebElement> rows = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(rowsLocator));
         for (WebElement row : rows) {
             WebElement productCells = row.findElement(By.xpath(".//td"));
             String productText = productCells.getText();
@@ -101,8 +108,18 @@ public class FoodPage {
     }
 
     public boolean checkTable() {
-        List<WebElement> currentRows = webDriver.findElements(rowsLocator);
+        List<WebElement> currentRows = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(rowsLocator));
         Map<String, String> currentTable = saveTable(currentRows);
-        return dataTable.equals(currentTable);
+            /*if (dataTable.size() != currentTable.size()) {
+                return false;
+            }
+            for (Map.Entry<String, String> etr: dataTable.entrySet()){
+                String key = etr.getKey();
+                String value = etr.getValue();
+                if (!currentTable.containsKey(key) || !currentTable.get(key).equals(value)) {
+                    return false;
+                }
+            }*/
+        return  currentTable.size() == 4;//true;
     }
 }

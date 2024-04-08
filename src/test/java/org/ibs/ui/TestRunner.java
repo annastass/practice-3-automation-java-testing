@@ -1,5 +1,7 @@
-package org.ibs;
+package org.ibs.ui;
 
+import org.ibs.basetestsclass.BaseTests;
+import org.ibs.pages.FoodPage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +11,6 @@ public class TestRunner extends BaseTests {
     void startTest() {
         System.out.println("@Test -> startTest()");
         FoodPage foodPage = FoodPage.getFoodPage();
-
         System.out.println("Тест-кейс: Добавление овоща, не экзотического");
         foodPage.addProducts("Перец", "Овощ", false);
         Assertions.assertTrue((foodPage.containsProduct("Перец")), "Не удалось добавить продукт: Перец, Овощ, Неэкзотический");
@@ -28,6 +29,7 @@ public class TestRunner extends BaseTests {
         System.out.println("Очистить данные");
         foodPage.clearData();
         Assertions.assertTrue((foodPage.checkTable()), "Не удалось очистить данные");
+
     }
 }
 

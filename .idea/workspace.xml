@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eedd25e-cf08-4754-8dd6-ed6bef8edd9f" name="Changes" comment="">
+    <list default="true" id="5eedd25e-cf08-4754-8dd6-ed6bef8edd9f" name="Changes" comment="добавлены явные ожидания и доработан метод сравнения состояниятабличек">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org.ibs/FoodPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org.ibs/FoodPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/ibs/rest/RestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/ibs/rest/RestTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,14 +29,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/studies/projects/practice-5-cucumber-java-testing&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.ibs" />
@@ -52,64 +54,81 @@
       <recent name="org.ibs" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestRunner">
-    <configuration name="AddingProductsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.RestTest.addProduct">
+    <configuration name="DBTestsRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="practice-3-automation-java-testing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ibs.*" />
+          <option name="PATTERN" value="org.ibs.dbtests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.ibs" />
-      <option name="MAIN_CLASS_NAME" value="org.ibs.AddingProductsTest" />
+      <option name="PACKAGE_NAME" value="org.ibs.dbtests" />
+      <option name="MAIN_CLASS_NAME" value="org.ibs.dbtests.DBTestsRunner" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddingProductsTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RestTest.addProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="practice-3-automation-java-testing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ibs.*" />
+          <option name="PATTERN" value="org.ibs.rest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.ibs" />
-      <option name="MAIN_CLASS_NAME" value="org.ibs.AddingProductsTest" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="PACKAGE_NAME" value="org.ibs.rest" />
+      <option name="MAIN_CLASS_NAME" value="org.ibs.rest.RestTest" />
+      <option name="METHOD_NAME" value="addProduct" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RestTest.addProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="practice-3-automation-java-testing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ibs.*" />
+          <option name="PATTERN" value="org.ibs.rest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.ibs" />
-      <option name="MAIN_CLASS_NAME" value="org.ibs.TestRunner" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="org.ibs.rest" />
+      <option name="MAIN_CLASS_NAME" value="org.ibs.rest.RestTest" />
+      <option name="METHOD_NAME" value="addProducts" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestRunner.startTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RestTest.clearData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="practice-3-automation-java-testing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ibs.*" />
+          <option name="PATTERN" value="org.ibs.rest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.ibs" />
-      <option name="MAIN_CLASS_NAME" value="org.ibs.TestRunner" />
-      <option name="METHOD_NAME" value="startTest" />
+      <option name="PACKAGE_NAME" value="org.ibs.rest" />
+      <option name="MAIN_CLASS_NAME" value="org.ibs.rest.RestTest" />
+      <option name="METHOD_NAME" value="clearData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RestTest.getProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="practice-3-automation-java-testing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ibs.rest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ibs.rest" />
+      <option name="MAIN_CLASS_NAME" value="org.ibs.rest.RestTest" />
+      <option name="METHOD_NAME" value="getProducts" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -117,10 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestRunner" />
-        <item itemvalue="JUnit.TestRunner.startTest" />
-        <item itemvalue="JUnit.AddingProductsTest.test" />
-        <item itemvalue="JUnit.AddingProductsTest" />
+        <item itemvalue="JUnit.RestTest.addProduct" />
+        <item itemvalue="JUnit.RestTest.clearData" />
+        <item itemvalue="JUnit.RestTest.getProducts" />
+        <item itemvalue="JUnit.RestTest.addProducts" />
+        <item itemvalue="JUnit.DBTestsRunner" />
       </list>
     </recent_temporary>
   </component>
@@ -162,11 +182,17 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.lang.AssertionError" memberName="suppressedExceptions" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

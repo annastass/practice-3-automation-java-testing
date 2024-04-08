@@ -1,4 +1,6 @@
-package org.ibs;
+package org.ibs.managers;
+
+import org.ibs.utils.PropConst;
 
 import java.util.concurrent.TimeUnit;
 

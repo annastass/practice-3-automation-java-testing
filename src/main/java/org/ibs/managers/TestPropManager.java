@@ -1,4 +1,4 @@
-package org.ibs;
+package org.ibs.managers;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,7 +29,6 @@ public class TestPropManager {
             e.printStackTrace();
         }
     }
-
     public String getProperty(String key) {
         return properties.getProperty(key);
     }
